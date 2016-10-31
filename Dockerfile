@@ -24,7 +24,7 @@ ENV CATALINA_HOME /home/apache-tomcat-7.0.72
 
 EXPOSE 8080
 
-#放入程序
+#放入程序1
 ADD target/ApiTest.war /home/apache-tomcat-7.0.72/webapps
 
 #设置tomcat 自启动
