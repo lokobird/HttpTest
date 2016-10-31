@@ -16,13 +16,16 @@ ENV PATH $PATH:$JAVA_HOME/bin
 
 #安装 tomcat7
 #RUN apt-get update
-RUN wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62.tar.gz
-RUN tar xvf apache-tomcat-7.0.62.tar.gz
+RUN wget https://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-7/v7.0.72/bin/apache-tomcat-7.0.72.tar.gz
+RUN tar xvf apache-tomcat-7.0.72.tar.gz
 
 #配置tomcat的环境变量
-ENV CATALINA_HOME /home/apache-tomcat-7.0.62
+ENV CATALINA_HOME /home/apache-tomcat-7.0.72
 
 EXPOSE 8080
 
+#放入程序
+ADD target/ApiTest.war /home/apache-tomcat-7.0.72/webapps
+
 #设置tomcat 自启动
-CMD [ "/home/apache-tomcat-7.0.62/bin/catalina.sh", "run" ]
+CMD [ "/home/apache-tomcat-7.0.72/bin/catalina.sh", "run" ]
